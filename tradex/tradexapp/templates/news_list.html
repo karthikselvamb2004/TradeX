@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market News</title>
+</head>
+<body>
+    <h1>Stock Market News</h1>
+    <a href="{% url 'add_news' %}">Add News</a>
+    <ul>
+        {% for article in news %}
+            <li>
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.content }}</p>
+                <small>Source: {{ article.source }} | Published: {{ article.published_at }}</small>
+                <br>
+                <a href="{% url 'edit_news' article.id %}">Edit</a> | 
+                <a href="{% url 'delete_news' article.id %}" onclick="return confirm('Are you sure you want to delete this news?');">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

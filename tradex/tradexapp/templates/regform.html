@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>user form</title>
+    </head>
+    <body>
+        <h1>REGISTRATION FORM </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            {{forms.as_p}}
+            <button type="submit">submit</button>
+        </form>
+        {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </body>
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+<head>
+
+    <title>Registered Users</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registered Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.contact }}</td>
+                <td>{{ user.loginid.email }}</td>
+                <td>{{ user.loginid.password }}</td> 
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align:center;">No users found.</td>
+            </tr>
+            {% endfor %}
+        
+        </tbody>
+    </table>
+</body>
+</html>
